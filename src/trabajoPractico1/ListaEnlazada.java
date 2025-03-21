@@ -4,6 +4,9 @@ import interfaces.IListaEnlazada;
 
 public class ListaEnlazada implements IListaEnlazada{
 	
+	private ListaEnlazada() {	// constructor privado para patrón fabric
+	};
+	
 	public static ListaEnlazada crearLista() {
 		return new ListaEnlazada();
 	}
