@@ -126,11 +126,40 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 
 	@Override
 	public ListaEnlazada borrarConValor(int buscado) {
+		/* 
+			Primer ensayo: recorro la lista y a medida que voy encontrando coincidencias
+			empiezo a reasignar las referencias a los nodos. Y vuelvo a seguir buscando desde el nuevo
+			nodo que ahora ocupa el lugar del que se eliminó por hallar una coincidencia.
+		*/
+		
 		Nodo aux = this.primero;
+		Nodo anterior = aux;		// se inicializa en el primer elemento
+		Nodo aux2;
 		
+		while(aux.getSiguiente() != null) {
+			
+			if(aux.getDato() == buscado) {
+				aux = aux.getSiguiente();
+				aux2 = aux;
+				
+				while(aux2.getSiguiente() != null) {
+					anterior.setSiguiente(aux2);
+					
+					anterior = aux2;
+					aux2 = aux2.getSiguiente();
+				}
+			}
+			
+			anterior = aux;				// guardo el nodo de tal manera que queda guardado el anterior correspondiente la siguiente iteración
+			aux = aux.getSiguiente();
+		}
 		
+		// Verificación del último elemento
+		if(aux.getDato() == buscado) {
+			this.borrarUltimo();
+		}
 		
-		return null;
+		return this;
 	}
 
 	@Override
