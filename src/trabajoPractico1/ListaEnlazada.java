@@ -105,6 +105,7 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 		}
 		
 		aux.setSiguiente(null);
+		tamanio--;
 		return this;
 	}
 
@@ -125,7 +126,10 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 
 	@Override
 	public ListaEnlazada borrarConValor(int buscado) {
-		// TODO Auto-generated method stub
+		Nodo aux = this.primero;
+		
+		
+		
 		return null;
 	}
 
@@ -144,7 +148,7 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 	public ListaEnlazada modificarValorEnPosicion(int valor, int posicion) {
 		Nodo aux = this.primero;
 		
-		for(int i = 1; i < posicion; i++) {
+		for(int i = 1; i < posicion; i++) {		// Me ubico en el nodo en la posicion ingresada
 			aux = aux.getSiguiente();
 		}
 		
@@ -155,8 +159,17 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 
 	@Override
 	public ListaEnlazada insertarEnPosicion(int valor, int posicion) {
-		// TODO Auto-generated method stub
-		return null;
+		Nodo aux = this.primero;
+		Nodo nuevo = new Nodo(valor);
+		
+		for(int i = 1; i < posicion - 1; i++) {		// Me ubico en la posición anterior a la ingresada
+			aux = aux.getSiguiente();
+		}
+		
+		nuevo.setSiguiente(aux.getSiguiente());
+		aux.setSiguiente(nuevo);
+		tamanio++;
+		return this;
 	}
 	
 	private class Nodo {
