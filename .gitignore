@@ -1,0 +1,11 @@
+# Archivos compilados
+*.class
+
+# Carpetas de compilación
+/bin/
+/build/
+
+# Archivos de configuración de Eclipse
+.classpath
+.project
+.settings/
