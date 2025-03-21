@@ -91,17 +91,35 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 		}
 		
 		tamanio--;
-		return null;
+		return this;
 	}
 
 	@Override
 	public ListaEnlazada borrarUltimo() {
-		return null;
+		Nodo aux;
+		aux = this.primero;		// puntero en el primer nodo
+		
+		// Me muevo hasta el anteúltimo nodo. Empiezo en 1 porque ya me situé en el primer nodo
+		for(int i = 1; i < this.cantidad() - 1; i++) {
+			aux = aux.getSiguiente();
+		}
+		
+		aux.setSiguiente(null);
+		return this;
 	}
 
 	@Override
 	public boolean pertenece(int buscado) {
-		// TODO Auto-generated method stub
+		Nodo aux = this.primero;
+		
+		while(aux != null) {
+			if(aux.getDato() == buscado) {
+				return true;
+			}
+			
+			aux = aux.getSiguiente();
+		}
+		
 		return false;
 	}
 
