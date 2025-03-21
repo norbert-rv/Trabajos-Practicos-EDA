@@ -2,7 +2,7 @@ package interfaces;
 
 import trabajoPractico1.ListaEnlazada;
 
-public interface IListaEnlazada {
+public interface IListaEnlazadaEnteros {
 	
 	public boolean esVacia();
 	public ListaEnlazada insertarAlInicio(int x);
