@@ -131,14 +131,26 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 
 	@Override
 	public int valorEnPosicion(int posicion) {
-		// TODO Auto-generated method stub
-		return 0;
+		Nodo aux = this.primero;
+		
+		for(int i = 1; i < posicion; i++) {
+			aux = aux.getSiguiente();
+		}
+		
+		return aux.getDato();
 	}
 
 	@Override
 	public ListaEnlazada modificarValorEnPosicion(int valor, int posicion) {
-		// TODO Auto-generated method stub
-		return null;
+		Nodo aux = this.primero;
+		
+		for(int i = 1; i < posicion; i++) {
+			aux = aux.getSiguiente();
+		}
+		
+		aux.setDato(valor);
+		
+		return this;
 	}
 
 	@Override
