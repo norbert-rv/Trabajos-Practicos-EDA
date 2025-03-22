@@ -20,12 +20,17 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 	
 	@Override
 	public boolean esVacia() {
-		return primero == null; // ver si es posible que haya lugares salteados
+		return primero == null;
 	}
 
 	@Override
 	public ListaEnlazada insertarAlInicio(int x) {
 		Nodo aux = new Nodo(x);
+		
+		if(this.primero == null) {
+			this.cola = aux;
+		}
+		
 		aux.setSiguiente(this.primero);
 		this.primero = aux;
 		tamanio++;
@@ -45,7 +50,7 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 		}
 		
 		tamanio++;
-		return null;
+		return this;
 	}
 
 	@Override
@@ -54,7 +59,7 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 		aux = this.primero;
 		
 		while(aux != null) {
-			System.out.println(aux.getDato());
+			System.out.print(aux.getDato());
 			aux = aux.getSiguiente();
 			
 			if(aux != null) {				// luego de mostrar el último no coloca flecha
@@ -76,6 +81,10 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 
 	@Override
 	public ListaEnlazada borrarPrimero() {
+		if(this.primero == null) {
+			return this;
+		}
+		
 		Nodo aux1, aux2;
 		aux1 = this.primero;					// tomo el primer nodo con aux1
 		aux2 = this.primero.getSiguiente();		// tomo el segundo nodo con aux2
@@ -96,6 +105,10 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 
 	@Override
 	public ListaEnlazada borrarUltimo() {
+		if(this.primero == null) {
+			return this;
+		}
+		
 		Nodo aux;
 		aux = this.primero;		// puntero en el primer nodo
 		
@@ -163,8 +176,12 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 	}
 
 	@Override
-	public int valorEnPosicion(int posicion) {
+	public int valorEnPosicion (int posicion) throws Exception {
 		Nodo aux = this.primero;
+		
+		if(aux == null || posicion > tamanio || posicion <= 0) {
+			throw new Exception("No se puede buscar el valor en la posición porque la lista está vacía o no existe un elemento en la posición ingresada."); 
+		}
 		
 		for(int i = 1; i < posicion; i++) {
 			aux = aux.getSiguiente();
