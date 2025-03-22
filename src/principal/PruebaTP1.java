@@ -56,21 +56,41 @@ public class PruebaTP1 {
 		// Borrar con valor
 		System.out.println("\nBorrar con valor 1:");
 		lista1.borrarConValor(1);
-//		lista1.borrarUltimo();
+		lista1.mostrar();
+		
+		System.out.println("\nBorrar con valor 56:");
+		lista1.borrarConValor(56);
 		lista1.mostrar();
 		
 		// Valor en posicion
-		
 		try {
+			System.out.println("\nEl valor en la posición 2 es: " + lista1.valorEnPosicion(2));
+			
+			System.out.println("\nIntento buscar un elemento en la posición 4... ");
+			System.out.println("\nLa lista tiene " + lista1.cantidad() + " elementos.");
 			System.out.println("\nEl valor en la posición 4 es: " + lista1.valorEnPosicion(4));
 		} catch (Exception e) {
 			System.out.println("\n" + e.getMessage() + "\n");
 		}
 		
 		// Modificar valor en posición
+		System.out.println("Modifico valor en la posición 2: ");
+		lista1.modificarValorEnPosicion(78, 2);
+		lista1.mostrar();
 		
+		System.out.println("\nModifico valor en la posición 6: ");
+		lista1.modificarValorEnPosicion(78, 6);
+		lista1.mostrar();
+		
+		System.out.println("\nModifico valor en la posición 1: ");
+		lista1.modificarValorEnPosicion(8, 1);
+		lista1.mostrar();
 		
 		// Insertar valor en posición
+		System.out.println("\nInserto valor en la posición 3: ");
+		lista1.insertarEnPosicion(8, 3);
+		lista1.mostrar();
+		
 	}
 
 }
