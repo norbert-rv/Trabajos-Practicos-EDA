@@ -57,6 +57,7 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 	public void mostrar() {
 		Nodo aux;
 		aux = this.primero;
+		System.out.println();
 		
 		while(aux != null) {
 			System.out.print(aux.getDato());
@@ -67,6 +68,8 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 			}
 			
 		}
+		
+		System.out.println();
 	}
 
 	@Override
@@ -93,7 +96,7 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 		this.primero = aux2;
 		aux2 = aux2.getSiguiente();
 		
-		while(aux1 != null) {
+		while(aux2 != null) {
 			aux1.setSiguiente(aux2);
 			aux1 = aux2;
 			aux2 = aux2.getSiguiente();
@@ -109,15 +112,23 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 			return this;
 		}
 		
-		Nodo aux;
+		Nodo aux, anterior;
 		aux = this.primero;		// puntero en el primer nodo
+		anterior = aux;
 		
 		// Me muevo hasta el anteúltimo nodo. Empiezo en 1 porque ya me situé en el primer nodo
-		for(int i = 1; i < this.cantidad() - 1; i++) {
+//		for(int i = 1; i < this.cantidad() - 1; i++) {
+//			aux = aux.getSiguiente();
+//		}
+		
+		while (aux.getSiguiente() != null) {
+			anterior = aux;
 			aux = aux.getSiguiente();
 		}
 		
-		aux.setSiguiente(null);
+		anterior.setSiguiente(null);
+		
+//		aux.setSiguiente(null);
 		tamanio--;
 		return this;
 	}
