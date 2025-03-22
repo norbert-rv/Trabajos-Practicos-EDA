@@ -14,12 +14,13 @@ public class PruebaTP1 {
 		
 		System.out.println("La lista está vacía: " + lista1.esVacia());
 		
-		System.out.println("\nInserto elementos al inicio (en orden 1 3 1 6 56 4): \n");
+		System.out.println("\nInserto elementos al inicio (en orden 1 3 1 6 56 1 4): \n");
 		lista1.insertarAlInicio(1);
 		lista1.insertarAlInicio(3);
 		lista1.insertarAlInicio(1);
 		lista1.insertarAlInicio(6);
 		lista1.insertarAlInicio(56);
+		lista1.insertarAlInicio(1);
 		lista1.insertarAlInicio(4);
 		
 		lista1.mostrar();
@@ -55,7 +56,7 @@ public class PruebaTP1 {
 		// Borrar con valor
 		System.out.println("\nBorrar con valor 1:");
 		lista1.borrarConValor(1);
-		
+//		lista1.borrarUltimo();
 		lista1.mostrar();
 		
 		// Valor en posicion
