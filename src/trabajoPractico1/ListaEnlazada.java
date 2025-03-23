@@ -27,7 +27,7 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 	public ListaEnlazada insertarAlInicio(int x) {
 		Nodo aux = new Nodo(x);
 		
-		if(this.primero == null) {
+		if (this.primero == null) {
 			this.cola = aux;
 		}
 		
@@ -41,7 +41,7 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 	public ListaEnlazada insertarAlFinal(int x) {
 		Nodo aux = new Nodo(x);
 		
-		if(this.primero == null) {
+		if (this.primero == null) {
 			this.primero = aux;
 			this.cola = aux;
 		} else {
@@ -55,7 +55,7 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 
 	@Override
 	public void mostrar() {
-		if(this.primero == null) {
+		if (this.primero == null) {
 			return;
 		}
 		
@@ -67,7 +67,7 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 			System.out.print(aux.getDato());
 			aux = aux.getSiguiente();
 			
-			if(aux != null) {				// luego de mostrar el último no coloca flecha
+			if (aux != null) {				// luego de mostrar el último no coloca flecha
 				System.out.print(" -> ");
 			}
 			
@@ -83,7 +83,7 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 
 	@Override
 	public int primerElemento() throws Exception {
-		if(this.primero == null) {
+		if (this.primero == null) {
 			throw new Exception(ERROR_LISTA_VACIA);
 		}
 		return this.primero.getDato();
@@ -91,7 +91,7 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 
 	@Override
 	public ListaEnlazada borrarPrimero() {
-		if(this.primero == null) {
+		if (this.primero == null) {
 			return this;
 		}
 		
@@ -115,7 +115,7 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 
 	@Override
 	public ListaEnlazada borrarUltimo() {
-		if(this.primero == null) {
+		if (this.primero == null) {
 			return this;
 		}
 		
@@ -123,7 +123,7 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 		aux = this.primero;		// puntero en el primer nodo
 		anterior = aux;
 
-		while (aux.getSiguiente() != null) {
+		while(aux.getSiguiente() != null) {
 			anterior = aux;
 			aux = aux.getSiguiente();
 		}
@@ -139,7 +139,7 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 		Nodo aux = this.primero;
 		
 		while(aux != null) {
-			if(aux.getDato() == buscado) {
+			if (aux.getDato() == buscado) {
 				return true;
 			}
 			
@@ -157,7 +157,7 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 			nodo que ahora ocupa el lugar del que se eliminó por hallar una coincidencia.
 		*/
 		
-		if(this.primero == null) {
+		if (this.primero == null) {
 			return this;
 		}
 		
@@ -167,7 +167,7 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 		
 		while(aux.getSiguiente() != null) {
 			
-			if(aux.getDato() == buscado) {
+			if (aux.getDato() == buscado) {
 				aux = aux.getSiguiente();
 				aux2 = aux;
 				
@@ -185,7 +185,7 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 		}
 		
 		// Verificación del último elemento
-		if(aux.getDato() == buscado) {
+		if (aux.getDato() == buscado) {
 			this.borrarUltimo();
 		}
 		
@@ -196,11 +196,11 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 	public int valorEnPosicion (int posicion) throws Exception {
 		Nodo aux = this.primero;
 		
-		if(aux == null || posicion > this.cantidad() || posicion <= 0) {
+		if (aux == null || posicion > this.cantidad() || posicion <= 0) {
 			throw new Exception(ERROR_POSICION); 
 		}
 		
-		for(int i = 1; i < posicion; i++) {
+		for (int i = 1; i < posicion; i++) {
 			aux = aux.getSiguiente();
 		}
 		
@@ -209,13 +209,13 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 
 	@Override
 	public ListaEnlazada modificarValorEnPosicion(int valor, int posicion) {
-		if(posicion <= 0 || posicion > this.cantidad()) {
+		if (posicion <= 0 || posicion > this.cantidad()) {
 			return this;
 		}
 		
 		Nodo aux = this.primero;
 		
-		for(int i = 1; i < posicion; i++) {		// Me ubico en el nodo en la posicion ingresada
+		for (int i = 1; i < posicion; i++) {		// Me ubico en el nodo en la posicion ingresada
 			aux = aux.getSiguiente();
 		}
 		
@@ -229,11 +229,11 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 		Nodo aux = this.primero;
 		Nodo nuevo = new Nodo(valor);
 		
-		if(posicion <= 0 || posicion > this.cantidad()) {
+		if (posicion <= 0 || posicion > this.cantidad()) {
 			return this;
 		}
 		
-		for(int i = 1; i < posicion - 1; i++) {		// Me ubico en la posición anterior a la ingresada
+		for (int i = 1; i < posicion - 1; i++) {		// Me ubico en la posición anterior a la ingresada
 			aux = aux.getSiguiente();
 		}
 		
