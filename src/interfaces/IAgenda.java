@@ -57,7 +57,7 @@ public interface IAgenda {
 	 * @return
 	 */
 	
-	public Contacto enPosicion(int posicion) throws Exception;
+	public Contacto enPosicion(int posicion);
 	
 	public static final String ERROR_POSICION = "No se puede buscar el valor en la posición porque la lista está vacía o no existe un elemento en la posición ingresada.";
 }
