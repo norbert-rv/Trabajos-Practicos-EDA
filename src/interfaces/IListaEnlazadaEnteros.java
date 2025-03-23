@@ -9,7 +9,7 @@ public interface IListaEnlazadaEnteros {
 	public ListaEnlazada insertarAlFinal(int x);
 	public void mostrar();
 	public int cantidad();
-	public int primerElemento();
+	public int primerElemento() throws Exception;
 	public ListaEnlazada borrarPrimero();
 	public ListaEnlazada borrarUltimo();
 	public boolean pertenece(int buscado);
@@ -18,4 +18,6 @@ public interface IListaEnlazadaEnteros {
 	public ListaEnlazada modificarValorEnPosicion(int valor, int posicion);
 	public ListaEnlazada insertarEnPosicion(int valor, int posicion);
 
+	public static final String ERROR_LISTA_VACIA = "No se puede obtener el primer elemento. La lista está vacía.";
+	public static final String ERROR_POSICION = "No se puede buscar el valor en la posición porque la lista está vacía o no existe un elemento en la posición ingresada.";
 }
