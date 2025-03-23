@@ -100,6 +100,15 @@ public class PruebaTP1 {
 		lista1.insertarEnPosicion(8, 3);
 		lista1.mostrar();
 		
+		System.out.println("\nLa lista tiene " + lista1.cantidad() + " elementos.");
+		System.out.println("\nBorrar con valor 8:");
+		lista1.borrarConValor(8).mostrar();
+		System.out.println("\nLa lista tiene " + lista1.cantidad() + " elementos.");
+		
+		System.out.println("\nBorrar con valor 1:");
+		lista1.borrarConValor(1).mostrar();
+		System.out.println("\nLa lista tiene " + lista1.cantidad() + " elementos.");
+		
 	}
 
 }
