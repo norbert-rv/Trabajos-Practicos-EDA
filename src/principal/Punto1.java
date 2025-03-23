@@ -2,7 +2,7 @@ package principal;
 
 import trabajoPractico1.ListaEnlazada;
 
-public class PruebaTP1 {
+public class Punto1 {
 
 	public static void main(String[] args) {
 		
