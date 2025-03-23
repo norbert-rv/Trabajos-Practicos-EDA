@@ -13,10 +13,6 @@ public class Contacto {
 		this.email = email;
 	}
 	
-//	public void mostrar() {
-//		System.out.println("(" + this.nombre + ", " + this.telefono + ", " + this.email + ")");
-//	}
-	
 	@Override
 	public String toString() {
 		String out = "(" + this.nombre + ", " + this.telefono + ", " + this.email + ")";
@@ -38,7 +34,7 @@ public class Contacto {
 			return false;
 		
 		Contacto other = (Contacto) obj;
-		return this.email.equalsIgnoreCase(other.email) || this.telefono.equalsIgnoreCase(other.telefono);
+		return this.nombre.equals(other.nombre) || this.email.equalsIgnoreCase(other.email) || this.telefono.equalsIgnoreCase(other.telefono);
 	}
 
 	public String getNombre() {
