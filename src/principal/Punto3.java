@@ -2,7 +2,6 @@ package principal;
 
 import trabajoPractico1.Agenda;
 import trabajoPractico1.Contacto;
-import trabajoPractico1.ListaEnlazadaContactos;
 
 public class Punto3 {
 
