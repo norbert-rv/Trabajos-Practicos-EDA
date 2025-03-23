@@ -23,7 +23,7 @@ public class Agenda implements IAgenda {
 		return this.listaAgenda.buscarValorPorNombre(nombre);
 	}
 
-	public ListaEnlazadaContactos borrar(String telefono) {		// no está funcionando
+	public ListaEnlazadaContactos borrar(String telefono) {
 		Contacto c = new Contacto(null, telefono, null);
 		return this.listaAgenda.borrarConValor(c);
 	}
@@ -42,6 +42,7 @@ public class Agenda implements IAgenda {
 		try {
 			c = this.listaAgenda.valorEnPosicion(posicion);
 		} catch (Exception e) {
+			System.out.println();
 			System.out.println(e.getMessage());
 		}
 		
