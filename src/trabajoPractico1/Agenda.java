@@ -23,11 +23,9 @@ public class Agenda implements IAgenda {
 		return this.listaAgenda.buscarValorPorNombre(nombre);
 	}
 
-	public ListaEnlazadaContactos borrar(String telefono) {
+	public ListaEnlazadaContactos borrar(String telefono) {		// no está funcionando
 		Contacto c = new Contacto(null, telefono, null);
-		this.listaAgenda.borrarConValor(c);
-		
-		return listaAgenda;
+		return this.listaAgenda.borrarConValor(c);
 	}
 
 	public void listar() {

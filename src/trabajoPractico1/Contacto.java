@@ -13,6 +13,10 @@ public class Contacto {
 		this.email = email;
 	}
 	
+	public void mostrar() {
+		System.out.println("(" + this.nombre + ", " + this.telefono + ", " + this.email + ")");
+	}
+	
 	@Override
 	public String toString() {
 		String out = "(" + this.nombre + ", " + this.telefono + ", " + this.email + ")";

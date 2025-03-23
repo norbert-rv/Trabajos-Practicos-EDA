@@ -63,13 +63,8 @@ public class ListaEnlazadaContactos implements IListaEnlazadaContactos {
 		System.out.println();
 		
 		while(aux != null) {
-			System.out.print(aux.getContacto().toString());
+			System.out.println(" -> " + aux.getContacto().toString());
 			aux = aux.getSiguiente();
-			
-			if (aux != null) {				// luego de mostrar el último no coloca flecha
-				System.out.print(" -> ");
-			}
-			
 		}
 		
 		System.out.println();
@@ -94,20 +89,7 @@ public class ListaEnlazadaContactos implements IListaEnlazadaContactos {
 			return this;
 		}
 		
-		Nodo aux1, aux2;
-		aux1 = this.primero;					// tomo el primer nodo con aux1
-		aux2 = this.primero.getSiguiente();		// tomo el segundo nodo con aux2
-		
-		// caso 0
-		this.primero = aux2;
-		aux2 = aux2.getSiguiente();
-		
-		while(aux2 != null) {
-			aux1.setSiguiente(aux2);
-			aux1 = aux2;
-			aux2 = aux2.getSiguiente();
-		}
-		
+		this.primero = this.primero.getSiguiente();
 		this.cantidad--;
 		return this;
 	}
@@ -118,17 +100,15 @@ public class ListaEnlazadaContactos implements IListaEnlazadaContactos {
 			return this;
 		}
 		
-		Nodo aux, anterior;
-		aux = this.primero;		// puntero en el primer nodo
-		anterior = aux;
-
-		while(aux.getSiguiente() != null) {
-			anterior = aux;
+		Nodo aux;
+		aux = this.primero;
+		
+		while(aux.getSiguiente().getSiguiente() != null) {
 			aux = aux.getSiguiente();
 		}
 		
-		anterior.setSiguiente(null);
-		
+		aux.setSiguiente(null);
+		this.cola = aux;
 		this.cantidad--;
 		return this;
 	}
@@ -157,37 +137,34 @@ public class ListaEnlazadaContactos implements IListaEnlazadaContactos {
 		if (this.primero == null) {
 			return this;
 		}
-		
-		Nodo aux = this.primero;
-		Nodo anterior = aux;		// se inicializa en el primer elemento
-		Nodo aux2;
-		
-		while(aux.getSiguiente() != null) {
 			
-			if (aux.getContacto().equals(buscado)) {
-				aux = aux.getSiguiente();
-				aux2 = aux;
-				
-				while(aux2.getSiguiente() != null) {
-					anterior.setSiguiente(aux2);
-					
-					anterior = aux2;
-					aux2 = aux2.getSiguiente();
+		// nueva implementación
+		Nodo aux = this.primero;	// para recorrer la lista
+		Nodo aux2 = null;			// siempre está una posición por detrás de aux
+		Nodo aux3 = null;
+
+		while(aux != null) {
+			if (aux.getContacto().getTelefono().equals(buscado.getTelefono())) {
+				if (aux2 == null) {
+					this.borrarPrimero();
+				} else if (aux.getSiguiente() == null) {
+					this.borrarUltimo();
+				} else {
+					aux3 = aux.getSiguiente();
+					while(aux3 != null) {
+						aux2.setSiguiente(aux3);
+						aux2 = aux3;
+						aux3 = aux3.getSiguiente();
+					}
+					this.cantidad--;
 				}
-				this.cantidad--;
-				
-				return this;	// se termina luego de encontrar una coincidencia.
+				return this;
 			}
-			
-			anterior = aux;				// guardo el nodo de tal manera que queda guardado el anterior correspondiente la siguiente iteración
+
+			aux2 = aux;
 			aux = aux.getSiguiente();
 		}
-		
-		// Verificación del último elemento
-		if (aux.getContacto() == buscado) {
-			this.borrarUltimo();
-		}
-		
+
 		return this;
 	}
 
