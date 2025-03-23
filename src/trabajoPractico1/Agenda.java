@@ -9,7 +9,7 @@ public class Agenda implements IAgenda {
 		
 	}
 	
-	public Agenda crearAgenda() {
+	public static Agenda crearAgenda() {
 		Agenda agenda = new Agenda();
 		return agenda;
 	}
