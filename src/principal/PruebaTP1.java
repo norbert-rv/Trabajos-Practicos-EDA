@@ -11,6 +11,7 @@ public class PruebaTP1 {
 		 */
 		
 		ListaEnlazada lista1 = ListaEnlazada.crearLista();
+		ListaEnlazada lista2 = ListaEnlazada.crearLista();
 		
 		System.out.println("La lista está vacía: " + lista1.esVacia());
 		
@@ -24,6 +25,7 @@ public class PruebaTP1 {
 		lista1.insertarAlInicio(4);
 		
 		lista1.mostrar();
+		lista2.mostrar();
 		
 		System.out.println("\n\nInserto 9 al final y 15 al inicio: \n");
 		lista1.insertarAlFinal(9);
@@ -36,7 +38,14 @@ public class PruebaTP1 {
 		
 		System.out.println("La lista está vacía: " + lista1.esVacia());
 		
-		System.out.println("\nEl primer elemento es: " + lista1.primerElemento());
+		try {
+			System.out.println("\nEl primer elemento es: " + lista1.primerElemento());
+			System.out.println();
+			System.out.println("\nEl primer elemento es: " + lista2.primerElemento());
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
 		
 		// Borrar primero
 		System.out.println("\nBorrar primero:");
@@ -55,7 +64,7 @@ public class PruebaTP1 {
 		
 		// Borrar con valor
 		System.out.println("\nBorrar con valor 1:");
-		lista1.borrarConValor(1);
+		lista2.borrarConValor(1);
 		lista1.mostrar();
 		
 		System.out.println("\nBorrar con valor 56:");
@@ -74,20 +83,20 @@ public class PruebaTP1 {
 		}
 		
 		// Modificar valor en posición
-		System.out.println("Modifico valor en la posición 2: ");
+		System.out.println("Modifico valor en la posición 2 (nuevo valor 78): ");
 		lista1.modificarValorEnPosicion(78, 2);
 		lista1.mostrar();
 		
-		System.out.println("\nModifico valor en la posición 6: ");
+		System.out.println("\nModifico valor en la posición 6 (nuevo valor 78): ");
 		lista1.modificarValorEnPosicion(78, 6);
 		lista1.mostrar();
 		
-		System.out.println("\nModifico valor en la posición 1: ");
+		System.out.println("\nModifico valor en la posición 1 (nuevo valor 8): ");
 		lista1.modificarValorEnPosicion(8, 1);
 		lista1.mostrar();
 		
 		// Insertar valor en posición
-		System.out.println("\nInserto valor en la posición 3: ");
+		System.out.println("\nInserto valor en la posición 3 (8): ");
 		lista1.insertarEnPosicion(8, 3);
 		lista1.mostrar();
 		

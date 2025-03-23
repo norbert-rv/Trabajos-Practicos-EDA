@@ -6,12 +6,12 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 	
 	private Nodo primero;	// primer nodo de la lista
 	private Nodo cola;		// variable que apunta al último nodo
-	private int tamanio;	// tamaño de la lista enlazada (cantidad de nodos)
+	private int cantidad;	// tamaño de la lista enlazada (cantidad de nodos)
 	
 	private ListaEnlazada() {
 		this.primero = null;
 		this.cola = null;
-		this.tamanio = 0;
+		this.cantidad = 0;
 	};
 	
 	public static ListaEnlazada crearLista() {
@@ -33,7 +33,7 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 		
 		aux.setSiguiente(this.primero);
 		this.primero = aux;
-		this.tamanio++;
+		this.cantidad++;
 		return this;
 	}
 
@@ -49,12 +49,16 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 			this.cola = aux;
 		}
 		
-		this.tamanio++;
+		this.cantidad++;
 		return this;
 	}
 
 	@Override
 	public void mostrar() {
+		if(this.primero == null) {
+			return;
+		}
+		
 		Nodo aux;
 		aux = this.primero;
 		System.out.println();
@@ -74,11 +78,14 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 
 	@Override
 	public int cantidad() {
-		return this.tamanio;
+		return this.cantidad;
 	}
 
 	@Override
-	public int primerElemento() {
+	public int primerElemento() throws Exception {
+		if(this.primero == null) {
+			throw new Exception(ERROR_LISTA_VACIA);
+		}
 		return this.primero.getDato();
 	}
 
@@ -102,7 +109,7 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 			aux2 = aux2.getSiguiente();
 		}
 		
-		this.tamanio--;
+		this.cantidad--;
 		return this;
 	}
 
@@ -123,7 +130,7 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 		
 		anterior.setSiguiente(null);
 		
-		this.tamanio--;
+		this.cantidad--;
 		return this;
 	}
 
@@ -150,6 +157,10 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 			nodo que ahora ocupa el lugar del que se eliminó por hallar una coincidencia.
 		*/
 		
+		if(this.primero == null) {
+			return this;
+		}
+		
 		Nodo aux = this.primero;
 		Nodo anterior = aux;		// se inicializa en el primer elemento
 		Nodo aux2;
@@ -166,7 +177,7 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 					anterior = aux2;
 					aux2 = aux2.getSiguiente();
 				}
-				this.tamanio--;
+				this.cantidad--;
 			}
 			
 			anterior = aux;				// guardo el nodo de tal manera que queda guardado el anterior correspondiente la siguiente iteración
@@ -186,7 +197,7 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 		Nodo aux = this.primero;
 		
 		if(aux == null || posicion > this.cantidad() || posicion <= 0) {
-			throw new Exception("No se puede buscar el valor en la posición porque la lista está vacía o no existe un elemento en la posición ingresada."); 
+			throw new Exception(ERROR_POSICION); 
 		}
 		
 		for(int i = 1; i < posicion; i++) {
@@ -198,11 +209,11 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 
 	@Override
 	public ListaEnlazada modificarValorEnPosicion(int valor, int posicion) {
-		Nodo aux = this.primero;
-		
 		if(posicion <= 0 || posicion > this.cantidad()) {
 			return this;
 		}
+		
+		Nodo aux = this.primero;
 		
 		for(int i = 1; i < posicion; i++) {		// Me ubico en el nodo en la posicion ingresada
 			aux = aux.getSiguiente();
@@ -228,7 +239,7 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 		
 		nuevo.setSiguiente(aux.getSiguiente());
 		aux.setSiguiente(nuevo);
-		this.tamanio++;
+		this.cantidad++;
 		return this;
 	}
 	
