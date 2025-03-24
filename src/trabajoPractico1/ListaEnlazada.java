@@ -146,34 +146,6 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 			return this;
 		}
 		
-//		Nodo aux = this.primero;
-//		Nodo anterior = aux;		// se inicializa en el primer elemento
-//		Nodo aux2;
-//		
-//		while(aux.getSiguiente() != null) {
-//			
-//			if (aux.getDato() == buscado) {
-//				aux = aux.getSiguiente();
-//				aux2 = aux;
-//				
-//				while(aux2.getSiguiente() != null) {
-//					anterior.setSiguiente(aux2);
-//					
-//					anterior = aux2;
-//					aux2 = aux2.getSiguiente();
-//				}
-//				this.cantidad--;
-//			}
-//			
-//			anterior = aux;				// guardo el nodo de tal manera que queda guardado el anterior correspondiente la siguiente iteración
-//			aux = aux.getSiguiente();
-//		}
-//		
-//		// Verificación del último elemento
-//		if (aux.getDato() == buscado) {
-//			this.borrarUltimo();
-//		}
-		
 		Nodo aux = this.primero;	// para recorrer la lista
 		Nodo aux2 = null;			// siempre está una posición por detrás de aux
 		Nodo aux3 = null;
