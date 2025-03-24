@@ -225,7 +225,7 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 		return this;
 	}
 	
-	public class Nodo {
+	private class Nodo {
 
 		private int dato;
 		private Nodo siguiente;
