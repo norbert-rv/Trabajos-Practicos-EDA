@@ -1,6 +1,12 @@
 # Archivos compilados
 *.class
+*.mf
+*.xml
 
 # Carpetas de compilación
 /bin/
 /build/
+
+# Archivos de proyecto Netbeans
+/nbproject/
+
