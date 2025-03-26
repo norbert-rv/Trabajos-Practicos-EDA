@@ -1,7 +1,6 @@
 # Archivos compilados
 *.class
 *.mf
-*.xml
 
 # Carpetas de compilación
 /bin/
