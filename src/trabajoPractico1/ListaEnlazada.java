@@ -12,7 +12,7 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 		this.primero = null;
 		this.cola = null;
 		this.cantidad = 0;
-	};
+	}
 	
 	public static ListaEnlazada crearLista() {
 		return new ListaEnlazada();
@@ -104,6 +104,9 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 	public ListaEnlazada borrarUltimo() {
 		if (this.primero == null) {
 			return this;
+		} else if (this.primero == this.cola) {
+			this.primero = null;
+			this.cola = null;
 		}
 		
 		Nodo aux;
