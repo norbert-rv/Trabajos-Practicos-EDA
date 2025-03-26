@@ -5,7 +5,3 @@
 # Carpetas de compilación
 /bin/
 /build/
-
-# Archivos de proyecto Netbeans
-/nbproject/
-
