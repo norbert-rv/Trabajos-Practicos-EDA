@@ -1,4 +1,4 @@
-package principal;
+package principal.controladores;
 
 import trabajoPractico1.ListaEnlazada;
 
