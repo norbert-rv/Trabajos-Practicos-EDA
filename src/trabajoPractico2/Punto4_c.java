@@ -13,9 +13,9 @@ public class Punto4_c {
         int[][] matriz2;
 
         /*
-        Calculo del tiempo de ejecucion medio para valores crecientes de n: 2, 5, 10, 100, 1000, 1500 (10.000 tarda demasiado)
+        Calculo del tiempo de ejecucion medio para valores crecientes de n: 2, 5, 10, 100, 1000
          */
-        int[] entradas = {2, 5, 10, 100, 1000};
+        int[] entradas = {2, 5, 10, 100, 500, 1000};
 
         for (int entrada : entradas) {
             matriz1 = new int[entrada][entrada];
