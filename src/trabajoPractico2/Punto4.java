@@ -37,15 +37,29 @@ public class Punto4 {
 
             /*
             Producto de matrices cuadradas calculando el tiempo de ejecución con System.nanoTime().
-            El tiempo de ejecución del método se va a mostrar por pantalla.
+            El tiempo de ejecución media del método se va a mostrar por pantalla.
+            Ejecuto el método un número finito de veces para calcular el valor medio. La desviación
+            estándar es alta. Con 100 repeticiones de hace menor pero sigue siendo significante.
              */
-            long tiempoInicial = System.nanoTime();
-            int[][] producto = Punto4.productoMatricesCuadradas(matriz1, matriz2, n);
+            int nroRepeticiones = 100;
+            long sumaTiempos = 0;
+            long tiempoInicial;
+            long tiempoFinal;
+            int[][] producto = new int[n][n];
+            
+            for (int i = 0; i < nroRepeticiones; i++) {
+                tiempoInicial = System.nanoTime();
+                producto = Punto4.productoMatricesCuadradas(matriz1, matriz2, n);
+                tiempoFinal = System.nanoTime();
+                sumaTiempos += (tiempoFinal - tiempoInicial);
+            }
+            
             System.out.println("\nMatriz producto:");
             System.out.println(Arrays.deepToString(producto) + "\n");
-            long tiempoFinal = System.nanoTime();
-            long tiempoEjecucion = tiempoFinal - tiempoInicial;
-            System.out.println("El tiempo de ejecución del método fue de: " + tiempoEjecucion + " ns (" + (tiempoEjecucion / 1000000) + " ms)");
+            
+            double tiempoPromedio = sumaTiempos / (double) nroRepeticiones;
+            
+            System.out.println("El tiempo de ejecución medio del método fue de: " + tiempoPromedio + " ns (" + (tiempoPromedio / 1_000_000) + " ms)");
         } catch (Exception e) {
             System.out.println("Dato ingresado inválido. ");
         }
