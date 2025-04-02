@@ -12,6 +12,7 @@ public class Punto1 {
 		
 		ListaEnlazada lista1 = ListaEnlazada.crearLista();
 		ListaEnlazada lista2 = ListaEnlazada.crearLista();
+                ListaEnlazada lista3 = ListaEnlazada.crearLista();
 		
 		System.out.println("La lista está vacía: " + lista1.esVacia());
 		
@@ -109,6 +110,25 @@ public class Punto1 {
 		lista1.borrarConValor(1).mostrar();
 		System.out.println("\nLa lista tiene " + lista1.cantidad() + " elementos.");
 		
+                System.out.println("\nInserto elementos al inicio (en orden 7 5 4 2 2): \n");
+		lista3.insertarAlInicio(7);
+		lista3.insertarAlInicio(5);
+		lista3.insertarAlInicio(4);
+		lista3.insertarAlInicio(2);
+		lista3.insertarAlInicio(2);
+		lista3.insertarAlFinal(2);
+		lista3.insertarAlFinal(4);
+                lista3.insertarAlFinal(2);
+                
+                lista3.mostrar();
+                
+                System.out.println("\nBorrar con valor 2: ");
+                
+                lista3.borrarConValor(2);
+                
+                lista3.mostrar();
+                
+                System.out.println();
 	}
 
 }
