@@ -141,7 +141,7 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 	public ListaEnlazada borrarConValor(int buscado) {
 		/* 
 			Primer ensayo: recorro la lista y a medida que voy encontrando coincidencias
-			empiezo a reasignar las referencias a los nodos. Y vuelvo a seguir buscando desde el nuevo
+			reasigno las referencias a los nodos. Y vuelvo a seguir buscando desde el nuevo
 			nodo que ahora ocupa el lugar del que se eliminó por hallar una coincidencia.
 		*/
 		
@@ -150,27 +150,24 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 		}
 		
 		Nodo aux = this.primero;	// para recorrer la lista
-		Nodo aux2 = null;			// siempre está una posición por detrás de aux
-		Nodo aux3 = null;
+		Nodo aux2 = null;		// siempre está una posición por detrás de aux
 
 		while(aux != null) {
 			if (aux.getDato() == buscado) {
 				if (aux2 == null) {
 					this.borrarPrimero();
+                                        aux = this.primero;
+                                        continue;
 				} else if (aux.getSiguiente() == null) {
 					this.borrarUltimo();
 				} else {
-					aux3 = aux.getSiguiente();
-					while(aux3 != null) {
-						aux2.setSiguiente(aux3);
-						aux2 = aux3;
-						aux3 = aux3.getSiguiente();
-					}
+					aux2.setSiguiente(aux.getSiguiente());
 					this.cantidad--;
 				}
-			}
-
-			aux2 = aux;
+			} else {
+                            aux2 = aux;
+                        }
+                        
 			aux = aux.getSiguiente();
 		}
 
