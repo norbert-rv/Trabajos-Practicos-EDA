@@ -53,7 +53,8 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 		return this;
 	}
 
-	@Override
+	/*
+        @Override
 	public void mostrar() {
 		if (this.primero == null) {
 			return;
@@ -75,7 +76,30 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 		
 		System.out.println();
 	}
-
+        */
+        
+        @Override
+        public void mostrar() {
+            this.mostrar(this.primero);
+        }
+        
+        private void mostrar(Nodo x) {
+            // Caso base
+            if (x == null) {
+                return;
+            }
+            
+            // diferencio el primer caso por la flecha unicamente
+            if (x != this.primero) {
+                System.out.print(" -> " + x.getDato());
+            } else {
+                System.out.print(x.getDato());
+            }
+            
+            // llamada recursiva
+            this.mostrar(x.getSiguiente());
+        }
+        
         /*
 	@Override
 	public int cantidad() {
