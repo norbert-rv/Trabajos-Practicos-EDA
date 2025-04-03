@@ -76,11 +76,27 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 		System.out.println();
 	}
 
+        /*
 	@Override
 	public int cantidad() {
 		return this.cantidad;
 	}
-
+        */
+        
+        // método cantidad() implementado con recursión (TP 3)
+        private int cantidad(Nodo x) {
+            if (x.getSiguiente() == null) {
+                return 1;
+            }
+            
+            return (1 + this.cantidad(x.getSiguiente()));
+        }
+        
+        @Override
+        public int cantidad() {
+            return cantidad(this.primero);
+        }
+        
 	@Override
 	public int primerElemento() throws Exception {
 		if (this.primero == null) {
