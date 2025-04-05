@@ -17,6 +17,9 @@ public interface IListaEnlazadaEnteros {
 	public int valorEnPosicion(int posicion) throws Exception;
 	public ListaEnlazada modificarValorEnPosicion(int valor, int posicion);
 	public ListaEnlazada insertarEnPosicion(int valor, int posicion);
+        
+        // TP3
+        public int mayor();
 
 	public static final String ERROR_LISTA_VACIA = "No se puede obtener el primer elemento. La lista está vacía.";
 	public static final String ERROR_POSICION = "No se puede buscar el valor en la posición porque la lista está vacía o no existe un elemento en la posición ingresada.";

@@ -264,6 +264,24 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 		this.cantidad++;
 		return this;
 	}
+        
+        /*
+        Punto 5 del TP3. Agregar un método recursivo llamado mayor a la clase ListaEnlazada, que
+        devuelva el valor mayor en la lista.
+        */
+        
+        @Override
+        public int mayor() {
+            return this.mayor(this.primero);
+        }
+        
+        private int mayor(Nodo x) {
+            if (x == null) {
+                
+            }
+                
+            return 0;
+        }
 	
 	private class Nodo {
 
