@@ -14,28 +14,34 @@ public class Agenda implements IAgenda {
 		return agenda;
 	}
 	
+        @Override
 	public Agenda agregar(Contacto c) {
 		this.listaAgenda.insertarAlFinal(c);
 		return this;
 	}
 
+        @Override
 	public Contacto buscar(String nombre) {
 		return this.listaAgenda.buscarValorPorNombre(nombre);
 	}
 
+        @Override
 	public ListaEnlazadaContactos borrar(String telefono) {
 		Contacto c = new Contacto(null, telefono, null);
 		return this.listaAgenda.borrarConValor(c);
 	}
 
+        @Override
 	public void listar() {
 		this.listaAgenda.mostrar();
 	}
 	
+        @Override
 	public int cantidad() {
 		return this.listaAgenda.cantidad();
 	}
 	
+        @Override
 	public Contacto enPosicion(int posicion) {
 		Contacto c = null;
 		
