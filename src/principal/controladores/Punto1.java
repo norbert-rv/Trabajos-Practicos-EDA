@@ -129,6 +129,11 @@ public class Punto1 {
                 lista3.mostrar();
                 
                 System.out.println();
+                
+                
+                // Probando método sumaUmbral...
+                System.out.println("\nLa suma de los elementos mayores a 4 en lista3 es: " + lista3.sumaUmbral(4));
+                System.out.println("\nLa suma de los elementos mayores a 1 en lista3 es: " + lista3.sumaUmbral(1));
 	}
 
 }

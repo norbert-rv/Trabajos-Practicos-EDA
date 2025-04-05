@@ -282,6 +282,25 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
                 
             return 0;
         }
+        
+        /*
+        Punto 3 del TP 3. Prueba del método para ver si está bien diseñado el algoritmo.
+        */
+        public int sumaUmbral(int umbral) {
+            return this.sumaUmbral(this.primero, umbral);
+        }
+        
+        private int sumaUmbral(Nodo x, int u) {
+            if (x == null) {
+                return 0;
+            }
+            
+            if (x.getDato() > u) {
+                return x.getDato() + sumaUmbral(x.getSiguiente(), u);
+            } else {
+                return sumaUmbral(x.getSiguiente(), u);
+            }
+        }
 	
 	private class Nodo {
 
