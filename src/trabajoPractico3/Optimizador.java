@@ -31,7 +31,7 @@ public class Optimizador {
             i++;
             
             // si es factible entonces lo sumo al conjunto solución
-            if (cantHorasAcumuladas + elemento.getTiempo() <= 40) {
+            if (cantHorasAcumuladas + elemento.getTiempo() <= cantHorasMaxima) {
                 solucion.add(elemento);
                 cantHorasAcumuladas += elemento.getTiempo();
             }
