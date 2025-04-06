@@ -16,6 +16,10 @@ public class Tarea {
     public Tarea crearTarea(int tiempo, float precio) {
         return new Tarea(tiempo, precio);
     }
+    
+    public float getPagoXHora() {
+        return this.precio / this.tiempo;
+    }
 
     public int getTiempo() {
         return tiempo;
