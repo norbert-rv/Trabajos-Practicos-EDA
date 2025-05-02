@@ -58,12 +58,20 @@ public class Pila<Item> implements IPila<Item> {
 
     @Override
     public Item top() {
-        return this.tope.getDato();
+        if (this.tope != null) {
+            return this.tope.getDato();
+        } else {
+            return null;
+        }
     }
 
     @Override
     public Item fondo() {
-        return this.fondo.getDato();
+        if (this.fondo != null) {
+            return this.fondo.getDato();   
+        } else {
+            return null;
+        }
     }
     
     private class Nodo<Item> {
