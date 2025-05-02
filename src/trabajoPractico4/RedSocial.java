@@ -47,21 +47,20 @@ public class RedSocial implements IRedSocial {
 
     @Override
     public boolean esta(Usuario usuario) {
-        Nodo aux = this.primero;
-        
-        if (this.primero == null) {
+        return estaPorNodos(this.primero, usuario);
+    }
+    
+    private boolean estaPorNodos(Nodo aux, Usuario usuario) {
+        // dos casos base
+        if (aux == null) {
             return false;
         }
         
-        while (aux != null) {
-            if (aux.getUsuario().equals(usuario)) {
-                return true;
-            }
-            
-            aux = aux.getSiguiente();
+        if (aux.getUsuario().equals(usuario)) {
+            return true;
         }
         
-        return false;
+        return estaPorNodos(aux.getSiguiente(), usuario);
     }
 
     @Override
