@@ -65,16 +65,38 @@ public class RedSocial implements IRedSocial {
 
     @Override
     public RedSocial echar(Usuario usuario) {
-        /*Nodo aux = this.primero;
+        Nodo aux = this.primero;
         
-        while (aux != null) {
-            if (aux.getUsuario().equals(usuario)) {
-                if (this.primero )
+        // caso que sea el primero
+        if (this.primero.getUsuario().equals(usuario)) {
+            this.primero = this.primero.getSiguiente();
+            this.cantidad--;
+            
+            // si la lista tiene un solo elemento
+            if (this.primero == this.cola) {
+                this.cola = null;
+            }
+            
+            return this;
+        }
+        
+        // resto de casos incluyendo el ultimo, moviendome desde el nodo anterior
+        while (aux.getSiguiente() != null) {
+            if (aux.getSiguiente().getUsuario().equals(usuario)) {
+               aux.setSiguiente(aux.getSiguiente().getSiguiente());
+               
+               // contemplo el caso de que haya sido el ultimo elemento
+               if (aux.getSiguiente() == null) {
+                   this.cola = aux;
+               }
+               
+               this.cantidad--;
+               aux = aux.getSiguiente();
             }
             
             aux = aux.getSiguiente();
         }
-        */
+        
         return this;
     }
 
