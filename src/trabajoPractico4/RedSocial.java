@@ -65,36 +65,33 @@ public class RedSocial implements IRedSocial {
 
     @Override
     public RedSocial echar(Usuario usuario) {
-        Nodo aux = this.primero;
+        Nodo actual = this.primero;
+        Nodo anterior = null;
         
-        // caso que sea el primero
-        if (this.primero.getUsuario().equals(usuario)) {
-            this.primero = this.primero.getSiguiente();
-            this.cantidad--;
-            
-            // si la lista tiene un solo elemento
-            if (this.primero == this.cola) {
-                this.cola = null;
+        while (actual != null) {
+            if (actual.getUsuario().equals(usuario)) {
+                // caso primero
+                if (anterior == null) {
+                    this.primero = actual.getSiguiente();
+                    if (this.primero == null) {
+                        this.cola = null;
+                    }
+                    actual = this.primero;
+                } else {
+                    anterior.setSiguiente(actual.getSiguiente());
+                    
+                    if (actual == this.cola) {
+                        this.cola = anterior;
+                    }
+                    
+                    actual = actual.getSiguiente();
+                }
+                
+                this.cantidad--;
+            } else {
+                anterior = actual;
+                actual = actual.getSiguiente();
             }
-            
-            return this;
-        }
-        
-        // resto de casos incluyendo el ultimo, moviendome desde el nodo anterior
-        while (aux.getSiguiente() != null) {
-            if (aux.getSiguiente().getUsuario().equals(usuario)) {
-               aux.setSiguiente(aux.getSiguiente().getSiguiente());
-               
-               // contemplo el caso de que haya sido el ultimo elemento
-               if (aux.getSiguiente() == null) {
-                   this.cola = aux;
-               }
-               
-               this.cantidad--;
-               aux = aux.getSiguiente();
-            }
-            
-            aux = aux.getSiguiente();
         }
         
         return this;
