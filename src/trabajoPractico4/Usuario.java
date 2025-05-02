@@ -4,6 +4,8 @@
  */
 package trabajoPractico4;
 
+import java.util.Objects;
+
 /**
  *
  * @author Norberto
@@ -11,6 +13,27 @@ package trabajoPractico4;
 public class Usuario {
     private String nombre;
     private String apellido;
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Usuario other = (Usuario) obj;
+        return this.nombre.equalsIgnoreCase(other.getNombre()) && this.apellido.equalsIgnoreCase(other.getApellido());
+    }
 
     public String getNombre() {
         return nombre;
