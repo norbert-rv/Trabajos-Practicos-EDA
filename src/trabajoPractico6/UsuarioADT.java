@@ -15,7 +15,7 @@ public class UsuarioADT {
      * @param fila
      * @return this
      */
-    public static Fila invertir(Fila fila) {
+    public static Fila invertirFila(Fila fila) {
         Object[] arr = fila.toArray();
         List arrList = Arrays.asList(arr);
         Collections.reverse(arrList);
@@ -33,7 +33,7 @@ public class UsuarioADT {
      * @param cantidad
      * @return la nueva fila de los n primeros elementos de la original
      */
-    public static Fila dividir(Fila fila, int cantidad) {
+    public static Fila dividirFila(Fila fila, int cantidad) {
         Fila nueva = FilaListaEnlazada.crearListaVacia();
         
         for (int i = 0; i < cantidad; i++) {
@@ -46,5 +46,26 @@ public class UsuarioADT {
         }
         
         return nueva;
+    }
+    
+    public static Fila unirFilas(Fila fila1, Fila fila2) {
+        Fila union = FilaListaEnlazada.crearListaVacia();
+        Object[] arrFila1 = fila1.toArray();
+        Object[] arrFila2 = fila2.toArray();
+        Object[] arrUnion = new Object[fila1.cantidad() + fila2.cantidad()];
+        int i = 0;
+        
+        for (Object o : arrFila1) {
+            arrUnion[i] = o;
+            i++;
+        }
+        
+        for (Object o : arrFila2) {
+            arrUnion[i] = o;
+            i++;
+        }
+        
+        union.fromArray(arrUnion);
+        return union;
     }
 }

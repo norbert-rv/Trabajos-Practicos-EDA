@@ -19,17 +19,22 @@ public class Prueba {
         System.out.println("\nLista original: ");
         fila.mostrarFila();
         
-        UsuarioADT.invertir(fila);
+        UsuarioADT.invertirFila(fila);
         System.out.println("\nLista invertida: ");
         fila.mostrarFila();
         
-        UsuarioADT.invertir(fila);
+        UsuarioADT.invertirFila(fila);
         
         Fila<Integer> otraFila;
-        otraFila = UsuarioADT.dividir(fila, 3);
+        otraFila = UsuarioADT.dividirFila(fila, 3);
         System.out.println("\nLista original (sin los primeros 3 elementos): ");
         fila.mostrarFila();
         System.out.println("\nLista nueva con los primeros 3 elementos de la anterior: ");
         otraFila.mostrarFila();
+        
+        // probando metodo unionFilas()
+        System.out.println("\nUnion de las dos filas: ");
+        Fila filaUnion = UsuarioADT.unirFilas(fila, otraFila);
+        filaUnion.mostrarFila();
     }
 }
