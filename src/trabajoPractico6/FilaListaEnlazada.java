@@ -119,6 +119,63 @@ public class FilaListaEnlazada<Item> implements Fila<Item> {
         
         return this;
     }
+
+    @Override
+    public Item[] toArray() {
+        Item[] arr = (Item[]) new Object[this.cantidad()];
+        int i = 0;
+        Nodo aux = this.frenteLista;
+        
+        while (aux != null) {
+            arr[i] = aux.getItem();
+            i++;
+            aux = aux.getSiguiente();
+        }
+        
+        return arr;
+    }
+    
+    @Override
+    public Fila fromArray(Item[] arr) {
+        for (Item i : arr) {
+            this.enFila(i);
+        }
+        return this;
+    }
+
+    @Override
+    public Fila merge(Fila fila) {
+        Fila aux = fila.copiar();
+        
+        while (!aux.esFilaVacia()) {
+            this.enFila((Item)aux.frente());
+            aux.deFila();
+        }
+        
+        return this;
+    }
+
+    @Override
+    public Fila copiar() {
+        Fila copia = FilaListaEnlazada.crearListaVacia();
+        
+        Nodo aux = this.frenteLista;
+        
+        while (aux != null) {
+            copia.enFila(aux.getItem());
+        }
+        
+        return copia;
+    }
+
+    @Override
+    public Fila limpiar() {
+        this.frenteLista = null;
+        this.finalLista = null;
+        this.cantidad = 0;
+        
+        return this;
+    }
     
     private class Nodo {
         private Item item;

@@ -14,4 +14,11 @@ public interface Fila<Item> {
     public Fila reenfilar();
     public Fila borrar(Item item);
     public int cantidad();
+    
+    // punto 3
+    public Item[] toArray();
+    public Fila fromArray(Item[] arr);
+    public Fila merge(Fila fila);
+    public Fila copiar();
+    public Fila limpiar();
 }
