@@ -21,4 +21,7 @@ public interface Fila<Item> {
     public Fila merge(Fila fila);
     public Fila copiar();
     public Fila limpiar();
+    
+    // extra
+    public void mostrarFila();
 }

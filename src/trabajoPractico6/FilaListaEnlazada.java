@@ -1,6 +1,7 @@
 package trabajoPractico6;
 
 import interfaces.Fila;
+import java.util.Arrays;
 
 /**
  * ADT Fila implemented using Singly Linked List
@@ -175,6 +176,11 @@ public class FilaListaEnlazada<Item> implements Fila<Item> {
         this.cantidad = 0;
         
         return this;
+    }
+    
+    @Override
+    public void mostrarFila() {
+        System.out.println(Arrays.toString(this.toArray()));
     }
     
     private class Nodo {
