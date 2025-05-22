@@ -8,7 +8,7 @@ import interfaces.Fila;
  */
 public class Prueba {
     public static void main (String args[]) {
-        Fila<Integer> fila = FilaListaEnlazada.crearListaVacia();
+        Fila<Integer> fila = FilaListaEnlazada.filaVacia();
         
         fila.enFila(1);
         fila.enFila(2);

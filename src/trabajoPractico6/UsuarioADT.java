@@ -34,7 +34,7 @@ public class UsuarioADT {
      * @return la nueva fila de los n primeros elementos de la original
      */
     public static Fila dividirFila(Fila fila, int cantidad) {
-        Fila nueva = FilaListaEnlazada.crearListaVacia();
+        Fila nueva = FilaListaEnlazada.filaVacia();
         
         for (int i = 0; i < cantidad; i++) {
             if (!fila.esFilaVacia()) {
@@ -49,7 +49,7 @@ public class UsuarioADT {
     }
     
     public static Fila unirFilas(Fila fila1, Fila fila2) {
-        Fila union = FilaListaEnlazada.crearListaVacia();
+        Fila union = FilaListaEnlazada.filaVacia();
         Object[] arrFila1 = fila1.toArray();
         Object[] arrFila2 = fila2.toArray();
         Object[] arrUnion = new Object[fila1.cantidad() + fila2.cantidad()];

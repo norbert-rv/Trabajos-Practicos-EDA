@@ -19,7 +19,7 @@ public class FilaListaEnlazada<Item> implements Fila<Item> {
         this.cantidad = 0;
     }
     
-    public static FilaListaEnlazada crearListaVacia() {
+    public static FilaListaEnlazada filaVacia() {
         return new FilaListaEnlazada();
     }
     
@@ -158,7 +158,7 @@ public class FilaListaEnlazada<Item> implements Fila<Item> {
 
     @Override
     public Fila copiar() {
-        Fila copia = FilaListaEnlazada.crearListaVacia();
+        Fila copia = FilaListaEnlazada.filaVacia();
         
         Nodo aux = this.frenteLista;
         
