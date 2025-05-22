@@ -60,4 +60,13 @@ public class ArbolBinario {
         
         return this.izquierdo().pertenece(c) || this.derecho().pertenece(c);
     }
+    
+    // metodo auxiliar para mostrar el contenido del arbol
+    public void mostrarArbol() {
+        if (!this.esABVacio()) {
+            System.out.println(this.raiz());
+            this.izquierdo().mostrarArbol();
+            this.derecho().mostrarArbol();
+        }
+    }
 }
