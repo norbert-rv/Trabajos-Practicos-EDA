@@ -7,10 +7,16 @@ package trabajoPractico7;
 import trabajoPractico5.Pila;
 
 /**
- *
+ * 
  * @author Norberto
  */
 public class ArbolExpresion {
+    /**
+     * Este metodo funciona con expresiones posfijas. Falta implementar para que
+     * convierta cualquier expresion a posfija antes de evaluar.
+     * @param expresion
+     * @return 
+     */
     public static ArbolBinario arbolDeExpresion(String expresion) {
         ArbolBinario izquierdo;
         ArbolBinario derecho;
