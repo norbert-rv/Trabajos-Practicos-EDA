@@ -19,10 +19,12 @@ public class Prueba {
         
         ArbolBinario arbolExpresion = ArbolExpresion.arbolDeExpresion(expresion);
         
-        System.out.println(arbolExpresion.enOrden());
+        System.out.println(arbolExpresion.enOrden() + "=");
         
-        System.out.println(arbolExpresion.preOrden());
+        System.out.println(arbolExpresion.preOrden() + "=");
         
-        System.out.println(arbolExpresion.posOrden());
+        System.out.println(arbolExpresion.posOrden() + "=");
+        
+        System.out.println(ArbolExpresion.evaluar(arbolExpresion));
     }
 }

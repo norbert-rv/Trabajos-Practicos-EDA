@@ -42,4 +42,48 @@ public class ArbolExpresion {
         
         return pilaAux.top();
     }
+    
+    /**
+     * Evalua un arbol de expresion y retorna un String con el resultado.
+     * @param expresion
+     * @return 
+     */
+    public static String evaluar(ArbolBinario arbolExpresion) {
+        Float resultado = 0F;
+        String expPosFija = arbolExpresion.posOrden();
+        char[] arr = expPosFija.toCharArray();
+        Pila<String> pilaAux = Pila.crearPilaVacia();
+        
+        String a, b;
+        
+        for (char c : arr) {
+            if (Character.isDigit(c)) {
+                pilaAux.push(String.valueOf(c));
+            } else {
+                b = pilaAux.top();
+                pilaAux.pop();
+                a = pilaAux.top();
+                pilaAux.pop();
+                
+                switch (c) {
+                    case '+':
+                        resultado = Float.valueOf(a) + Float.valueOf(b);
+                        break;
+                    case '-':
+                        resultado = Float.valueOf(a) - Float.valueOf(b);
+                        break;
+                    case '*':
+                        resultado = Float.valueOf(a) * Float.valueOf(b);
+                        break;
+                    case '/':
+                        resultado = Float.valueOf(a) / Float.valueOf(b);
+                        break;
+                }
+                
+                pilaAux.push(resultado.toString());
+            }
+        }
+        
+        return pilaAux.top();
+    }
 }
