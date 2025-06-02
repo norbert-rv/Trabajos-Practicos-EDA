@@ -150,7 +150,7 @@ public class ArbolBinario {
         
         salida.append(this.raiz());
     }
-
+    
     // setters privados para usar en armarAB()
     private void setRaiz(Character raiz) {
         this.raiz = raiz;
