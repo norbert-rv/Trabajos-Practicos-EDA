@@ -141,11 +141,11 @@ public class ArbolBinario {
     
     private void expPosOrden(StringBuilder salida) {
         if (!this.izquierdo().esABVacio()) {
-            this.izquierdo().expEnOrden(salida);
+            this.izquierdo().expPosOrden(salida);
         }
    
         if (!this.derecho().esABVacio()) {
-            this.derecho().expEnOrden(salida);
+            this.derecho().expPosOrden(salida);
         }
         
         salida.append(this.raiz());

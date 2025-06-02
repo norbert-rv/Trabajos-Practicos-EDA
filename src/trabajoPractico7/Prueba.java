@@ -15,5 +15,14 @@ public class Prueba {
         
         raiz.mostrarArbol();
         
+        String expresion = "12+5*2+=";
+        
+        ArbolBinario arbolExpresion = ArbolExpresion.arbolDeExpresion(expresion);
+        
+        System.out.println(arbolExpresion.enOrden());
+        
+        System.out.println(arbolExpresion.preOrden());
+        
+        System.out.println(arbolExpresion.posOrden());
     }
 }
