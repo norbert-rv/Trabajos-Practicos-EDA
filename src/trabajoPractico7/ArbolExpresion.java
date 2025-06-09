@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package trabajoPractico7;
 
 import trabajoPractico5.Pila;
@@ -14,10 +10,14 @@ public class ArbolExpresion {
     /**
      * Este metodo funciona con expresiones posfijas. Falta implementar para que
      * convierta cualquier expresion a posfija antes de evaluar.
-     * @param expresion
-     * @return 
+     * @param expresion String con la expresion posfija bien formada.
+     * @return un arbol binario de expresion.
      */
     public static ArbolBinario arbolDeExpresion(String expresion) {
+        /*
+        *   Funcionamiento: convierto el String de entrada en un arreglo; lo
+        *   recorro y, usando una pila, voy armando el arbol de expresion.
+        */
         ArbolBinario izquierdo;
         ArbolBinario derecho;
         Pila<ArbolBinario> pilaAux = Pila.crearPilaVacia();
@@ -25,7 +25,7 @@ public class ArbolExpresion {
         char[] arr = expresion.toCharArray();
         
         for (char c : arr) {
-            if (c == '=') {
+            if (c == '=') {     // si la expresion esta bien formada no hace falta
                 break;
             }
             
@@ -45,10 +45,15 @@ public class ArbolExpresion {
     
     /**
      * Evalua un arbol de expresion y retorna un String con el resultado.
-     * @param expresion
-     * @return 
+     * @param arbolExpresion un arbol binario de expresion.
+     * @return String con el resultado.
      */
     public static String evaluar(ArbolBinario arbolExpresion) {
+        /*
+        *   Funcionamiento: obtengo un String con la expresion del arbol de
+        *   expresion de entrada; lo convierto a un arreglo; lo recorro y luego,
+        *   usando una pila, voy evaluando la expresion trabajando con Strings.
+        */
         Float resultado = 0F;
         String expPosFija = arbolExpresion.posOrden();
         char[] arr = expPosFija.toCharArray();
@@ -57,28 +62,21 @@ public class ArbolExpresion {
         String a, b;
         
         for (char c : arr) {
-            if (Character.isDigit(c)) {
+            if (Character.isDigit(c)) {  // si es un digito, lo agrego a la pila
                 pilaAux.push(String.valueOf(c));
-            } else {
+            } else {  // si no es un digito, evaluo la expresion parcial
                 b = pilaAux.top();
                 pilaAux.pop();
                 a = pilaAux.top();
                 pilaAux.pop();
                 
-                switch (c) {
-                    case '+':
-                        resultado = Float.valueOf(a) + Float.valueOf(b);
-                        break;
-                    case '-':
-                        resultado = Float.valueOf(a) - Float.valueOf(b);
-                        break;
-                    case '*':
-                        resultado = Float.valueOf(a) * Float.valueOf(b);
-                        break;
-                    case '/':
-                        resultado = Float.valueOf(a) / Float.valueOf(b);
-                        break;
-                }
+                resultado = switch (c) {
+                    case '+' -> Float.valueOf(a) + Float.valueOf(b);
+                    case '-' -> Float.valueOf(a) - Float.valueOf(b);
+                    case '*' -> Float.valueOf(a) * Float.valueOf(b);
+                    case '/' -> Float.valueOf(a) / Float.valueOf(b);
+                    default -> 0F;
+                };
                 
                 pilaAux.push(resultado.toString());
             }
