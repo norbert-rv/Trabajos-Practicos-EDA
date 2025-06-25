@@ -7,7 +7,7 @@ public class ListaEnlazada implements IListaEnlazadaEnteros{
 	private Nodo primero;	// primer nodo de la lista
 	private Nodo cola;		// variable que apunta al último nodo
 	private int cantidad;	// tamaño de la lista enlazada (cantidad de nodos)
-	
+        
 	private ListaEnlazada() {
 		this.primero = null;
 		this.cola = null;
