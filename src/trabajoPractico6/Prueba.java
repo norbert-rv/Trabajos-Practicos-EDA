@@ -11,10 +11,23 @@ public class Prueba {
         Fila<Integer> fila = FilaListaEnlazada.filaVacia();
         
         fila.enFila(1);
+        fila.enFila(1);
         fila.enFila(2);
         fila.enFila(3);
         fila.enFila(4);
         fila.enFila(5);
+        
+        fila.mostrarFila();
+        
+        System.out.println("Probando de borrar");
+        fila.borrar(1);
+        fila.mostrarFila();
+        
+        fila.borrar(4);
+        fila.mostrarFila();
+        
+        fila.borrar(5);
+        fila.mostrarFila();
         
         System.out.println("\nLista original: ");
         fila.mostrarFila();

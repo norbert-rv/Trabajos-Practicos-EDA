@@ -91,7 +91,42 @@ public class FilaListaEnlazada<Item> implements Fila<Item> {
     public int cantidad() {
         return this.cantidad;
     }
-
+    
+    @Override
+    public Fila borrar(Item item) {
+        Nodo aux = this.frenteLista;
+        
+        // la fila esta vacia
+        if (aux == null) {
+            return this;
+        }
+        
+        // elimina las ocurrencias del primer nodo que se puede ir actualizando
+        while (aux.getItem().equals(item)) {
+            this.frenteLista = aux.getSiguiente();
+            aux = this.frenteLista;
+            this.cantidad--;
+            
+            if (aux == null) {
+                return this;
+            }
+        }
+        
+        while (aux.getSiguiente() != null) {
+            if (aux.getSiguiente().getItem().equals(item)) {
+                aux.setSiguiente(aux.getSiguiente().getSiguiente());
+                if (aux.getSiguiente() == null) {
+                    this.finalLista = aux;
+                }
+                this.cantidad--;
+            } else {
+                aux = aux.getSiguiente();
+            }
+        }
+        
+        return this;
+    }
+/*
     @Override
     public Fila borrar(Item item) {
         Nodo actual = this.frenteLista;
@@ -120,7 +155,8 @@ public class FilaListaEnlazada<Item> implements Fila<Item> {
         
         return this;
     }
-
+*/
+    
     @Override
     public Item[] toArray() {
         Item[] arr = (Item[]) new Object[this.cantidad()];
